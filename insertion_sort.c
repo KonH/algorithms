@@ -1,11 +1,4 @@
-#include <stdio.h>
-
-void print_array(int array[], int size) {
-	for ( int i = 0; i < size; i++ ) {
-		printf("%d ", array[i]);
-	}
-	printf("\n");
-}
+#include "utils.h"
 
 void swap(int* x, int* y) {
 	int temp = *x;
@@ -25,9 +18,9 @@ void insertion_sort(int array[], int size) {
 
 int main() {
 	int n = 7;
-	int array[] = { 5, 10, 15, 8, 6, 1, -1 };
+	int array[]    = {  5, 10, 15, 8, 6,  1, -1 };
+	int expected[] = { -1,  1,  5, 6, 8, 10, 15 };
 	insertion_sort(array, n);
-	print_array(array, 7);
-	return 0;
+	return assert_equals_arr(array, expected, n);
 }
 
