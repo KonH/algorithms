@@ -1,5 +1,3 @@
-#include <array>
-
 #include "utils.h"
 
 using std::array;

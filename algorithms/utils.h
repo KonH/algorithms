@@ -2,15 +2,26 @@
 
 #include <array>
 #include <vector>
+#include <map>
+#include <tuple>
 #include <ostream>
 #include <iostream>
 #include <cmath>
+#include <limits>
 
 using std::cout;
 using std::endl;
 using std::array;
 using std::vector;
+using std::map;
+using std::tuple;
 using std::ostream;
+
+template<class T1, class T2>
+ostream& operator <<(ostream& os, const tuple<T1, T2>& s) {
+	os << "{" << std::get<0>(s) << ", " << std::get<1>(s) << "}";
+	return os;
+}
 
 template<class T>
 ostream& operator <<(ostream& os, const vector<T>& s) {
@@ -38,6 +49,20 @@ ostream& operator <<(ostream& os, const array<T, Size>& s) {
 		os << x;
 	}
 	return os << "]";
+}
+
+template<class TKey, class TValue>
+ostream& operator <<(ostream& os, const map<TKey, TValue>& s) {
+	os << "{";
+	bool first = true;
+	for (const auto& x : s) {
+		if (!first) {
+			os << ", ";
+		}
+		first = false;
+		os << "(" << x.first << "; " << x.second << ")";
+	}
+	return os << "}";
 }
 
 template<class T>
