@@ -4,6 +4,7 @@
 #include <vector>
 #include <ostream>
 #include <iostream>
+#include <cmath>
 
 using std::cout;
 using std::endl;
@@ -40,13 +41,13 @@ ostream& operator <<(ostream& os, const array<T, Size>& s) {
 }
 
 template<class T>
-bool assert_equals(const vector<T>& actual, const vector<T>& expected) {
+void assert_equals(const vector<T>& actual, const vector<T>& expected) {
 	if ( actual.size() != expected.size() ) {
 		cout << "Assert: failed!" << endl;
 		cout << actual << endl;
 		cout << "!=" << endl;
 		cout << expected << endl;
-		return false;
+		exit(1);
 	}
 	for ( size_t i = 0; i < actual.size(); i++ ) {
 		if ( actual[i] != expected[i] ) {
@@ -54,24 +55,23 @@ bool assert_equals(const vector<T>& actual, const vector<T>& expected) {
 			cout << actual << endl;
 			cout << "!=" << endl;
 			cout << expected << endl;
-			return false;
+			exit(1);
 		}
 	}
 	cout << "Assert: passed." << endl;
 	cout << actual << endl;
 	cout << "==" << endl;
 	cout << expected << endl;
-	return true;
 }
 
 template<class T, size_t Size>
-bool assert_equals(const array<T, Size>& actual, const array<T, Size>& expected) {
+void assert_equals(const array<T, Size>& actual, const array<T, Size>& expected) {
 	if ( actual.size() != expected.size() ) {
 		cout << "Assert: failed!" << endl;
 		cout << actual << endl;
 		cout << "!=" << endl;
 		cout << expected << endl;
-		return false;
+		exit(1);
 	}
 	for ( size_t i = 0; i < actual.size(); i++ ) {
 		if ( actual[i] != expected[i] ) {
@@ -79,12 +79,20 @@ bool assert_equals(const array<T, Size>& actual, const array<T, Size>& expected)
 			cout << actual << endl;
 			cout << "!=" << endl;
 			cout << expected << endl;
-			return false;
+			exit(1);
 		}
 	}
 	cout << "Assert: passed." << endl;
 	cout << actual << endl;
 	cout << "==" << endl;
 	cout << expected << endl;
-	return true;
+}
+
+struct Point {
+	int x;
+	int y;
+};
+
+double get_distance(const Point p1, const Point p2) {
+	return std::hypot(p1.x - p2.x, p1.y - p2.y);
 }

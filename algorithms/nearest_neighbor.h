@@ -9,15 +9,6 @@ using std::array;
 using std::vector;
 
 namespace nearest_neighbor {
-	struct Point {
-		int x;
-		int y;
-	};
-
-	double get_distance(const Point p1, const Point p2) {
-		return std::hypot(p1.x - p2.x, p1.y - p2.y);
-	}
-
 	bool is_found_in_passed(const vector<size_t>& passed, const size_t index) {
 		for ( auto p : passed ) {
 			if ( p == index ) {
@@ -53,7 +44,7 @@ namespace nearest_neighbor {
 		vector<size_t> passed;
 		size_t nearest = 0;
 		size_t cur_index = start_index;
-		for ( size_t i = 0; i < result.size(); i++ ) {
+		for ( size_t i = 0; i < points.size() - 1; i++ ) {
 			nearest = select_nearest_point(points, passed, cur_index);
 			result.push_back(nearest);
 			passed.push_back(cur_index);
@@ -65,8 +56,8 @@ namespace nearest_neighbor {
 
 	void run() {
 		array<Point, 4> points = {{ {1, 1}, {5, 5}, {2, 3}, {7, 3} }};
-		vector<int> expected = { 2, 1, 3, 0 };
+		vector<size_t> expected = { 2, 1, 3, 0 };
 		auto result = nearest_neighbor<4>(points, 0);
-		assert_equals(expected, expected);
+		assert_equals(result, expected);
 	}
 }
