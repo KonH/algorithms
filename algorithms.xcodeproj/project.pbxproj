@@ -25,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7C8975A721E9D2DB008E3B9C /* optimal_scheduling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = optimal_scheduling.h; sourceTree = "<group>"; };
 		7CEBA7E621E915E90046A5DC /* algorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CEBA7E921E915E90046A5DC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7CEBA7F021E9163A0046A5DC /* nearest_neighbor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nearest_neighbor.h; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 				7CEBA7F021E9163A0046A5DC /* nearest_neighbor.h */,
 				7CEBA7F221E9163A0046A5DC /* utils.h */,
 				7CEBA7E921E915E90046A5DC /* main.cpp */,
+				7C8975A721E9D2DB008E3B9C /* optimal_scheduling.h */,
 			);
 			path = algorithms;
 			sourceTree = "<group>";

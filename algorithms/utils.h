@@ -65,6 +65,14 @@ ostream& operator <<(ostream& os, const map<TKey, TValue>& s) {
 	return os << "}";
 }
 
+void assert_equals(bool actual, bool expected) {
+	if ( actual != expected ) {
+		cout << "Assert: failed!" << endl;
+		exit(1);
+	}
+	cout << "Assert: passed." << endl;
+}
+
 template<class T>
 void assert_equals(const vector<T>& actual, const vector<T>& expected) {
 	if ( actual.size() != expected.size() ) {
