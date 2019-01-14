@@ -3,18 +3,12 @@
 using std::array;
 
 namespace insertion_sort {
-	void swap(int& x, int& y) {
-		int temp = x;
-		x = y;
-		y = temp;
-	}
-
 	template<size_t Size>
 	void insertion_sort(array<int, Size>& array) {
 		for ( size_t i = 1; i < array.size(); i++ ) {
 			size_t j = i;
 			while ( (j > 0) && (array[j] < array[j - 1]) ) {
-				swap(array[j], array[j - 1]);
+				std::swap(array[j], array[j - 1]);
 				j = j - 1;
 			}
 		}
