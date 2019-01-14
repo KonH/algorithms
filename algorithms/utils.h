@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cmath>
 #include <limits>
+#include <memory>
 
 using std::cout;
 using std::endl;
@@ -16,6 +17,7 @@ using std::vector;
 using std::map;
 using std::tuple;
 using std::ostream;
+using std::shared_ptr;
 
 template<class T1, class T2>
 ostream& operator <<(ostream& os, const tuple<T1, T2>& s) {
